@@ -105,7 +105,6 @@ blockquote {
 
 body {
   font-family: $font-stack;
-  font-size: 20px;
   background: $background;
   color: $text-color;
   margin: 0;
@@ -168,22 +167,7 @@ code, pre {
 
 .form {
     input, select, textarea {
-        font-size: 20px;
-        border: 0;
         padding: 5px;
-        background: $form-background-color;
-        color: $form-text-color;
-        &:focus {
-            outline: 1px solid $secondary-color;
-        }
-    }
-    input[type=submit] {
-        font-size: 20px;
-        outline: none;
-        background: $primary-color;
-        color: $primary-button-text-color;
-        padding: 5px 12px;
-        cursor: pointer;
     }
 }
 
@@ -292,8 +276,7 @@ footer {
 }
 
 @mixin admin-button() {
-    font-size: 20px;
-    padding: 8px 10px 5px 10px;
+    padding: 8px 10px;
 }
 
 .show-sensitive-btn, .show-more-btn, .label-btn {
@@ -420,7 +403,6 @@ a.label-btn {
         }
     }
     .activity-attachment {
-        margin: 30px 0 20px 0;
         img, audio, video {
             max-width: calc(min(740px, 100%));
         }
