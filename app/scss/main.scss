@@ -1,11 +1,11 @@
 $font-stack: Helvetica, sans-serif;
-$background: #ddd;
+$background: ThreeDFace;
 $light-background: #e6e6e6;
-$text-color: #111;
-$primary-color: #1d781d;
-$secondary-color: #781D78;
-$form-background-color: #ccc;
-$form-text-color: #333;
+$text-color: ButtonText;
+$primary-color: LinkText;
+$secondary-color: VisitedLink;
+$form-background-color: ThreeDFace;
+$form-text-color: ButtonText;
 $muted-color: #555; // solarized comment text
 $primary-button-text-color: #fff;
 $code-highlight-background: #f0f0f0;
@@ -106,7 +106,6 @@ blockquote {
 body {
   font-family: $font-stack;
   font-size: 20px;
-  line-height: 32px;
   background: $background;
   color: $text-color;
   margin: 0;
@@ -142,7 +141,6 @@ dl {
 .shared-header {
     margin-left: 20px;
     margin-top: 30px;
-    margin-bottom: -20px;
     strong {
         color: $primary-color;
     }
@@ -295,16 +293,7 @@ footer {
 
 @mixin admin-button() {
     font-size: 20px;
-    line-height: 32px;
-    font-family: $font-stack;
-    background: $form-background-color;
-    color: $form-text-color;
-    border: 1px solid $background;
     padding: 8px 10px 5px 10px;
-    cursor: pointer;
-    &:hover {
-        border: 1px solid $form-text-color;
-    }
 }
 
 .show-sensitive-btn, .show-more-btn, .label-btn {
@@ -417,6 +406,7 @@ a.label-btn {
 .ap-object {
     margin: 15px 0;
     padding: 20px;
+    border: 1px dashed currentColor;
     nav {
         color: $muted-color;
     }
@@ -464,7 +454,6 @@ a.label-btn {
 
 .actor-action {
   margin-top:20px;
-  margin-bottom:-20px;
   padding: 0 20px;
   span {
     color: $muted-color;
