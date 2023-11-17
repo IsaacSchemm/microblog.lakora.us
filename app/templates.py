@@ -350,7 +350,7 @@ def _timeago(original_dt: datetime) -> str:
     if dt.tzinfo:
         dt = dt.astimezone(timezone.utc).replace(tzinfo=None)
     chicago_dt = dt.astimezone(ZoneInfo("America/Chicago"))
-    return humanize.naturaltime(dt, when=now().replace(tzinfo=None)) + " (" + chicago_dt.strftime('%b. %-d at %-I:%M %p') + ")"
+    return chicago_dt.strftime('%a. %b. %-d / %-I:%M %p') + " (" + humanize.naturaltime(dt, when=now().replace(tzinfo=None)) + ")"
 
 
 def _has_media_type(attachment: Attachment, media_type_prefix: str) -> bool:
