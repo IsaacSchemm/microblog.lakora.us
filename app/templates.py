@@ -349,8 +349,12 @@ def _timeago(original_dt: datetime) -> str:
     dt = original_dt
     if dt.tzinfo:
         dt = dt.astimezone(timezone.utc).replace(tzinfo=None)
-    chicago_dt = dt.astimezone(ZoneInfo("America/Chicago"))
-    return chicago_dt.strftime('%a. %b. %-d / %-I:%M %p') + " (" + humanize.naturaltime(dt, when=now().replace(tzinfo=None)) + ")"
+    chicago_dt = original_dt.astimezone(ZoneInfo("America/Chicago"))
+    chicago_now = now().astimezone(ZoneInfo("America/Chicago"))
+    if chicago_dt.date() == chicago_now.date():
+        return chicago_dt.strftime('%-I:%M %p')
+    else:
+         return chicago_dt.strftime('%A, %B %-d')
 
 
 def _has_media_type(attachment: Attachment, media_type_prefix: str) -> bool:
