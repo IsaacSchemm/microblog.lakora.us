@@ -2,15 +2,7 @@
 
 A self-hosted, single-user, ActivityPub powered microblog.
 
-[![builds.sr.ht status](https://builds.sr.ht/~tsileo/microblog.pub.svg)](https://builds.sr.ht/~tsileo/microblog.pub?)
 [![AGPL 3.0](https://img.shields.io/badge/license-AGPL_3.0-blue.svg?style=flat)](https://git.sr.ht/~tsileo/microblog.pub/tree/v2/item/LICENSE)
-
-Instances in the wild:
-
- - [microblog.pub](https://microblog.pub/) (follow to get updated about the project)
- - [hexa.ninja](https://hexa.ninja) (theme customization example)
- - [testing.microblog.pub](https://testing.microblog.pub/)
- - [Irish Left Archive](https://posts.leftarchive.ie/) (another theme customization example)
 
 There are still some rough edges, but the server is mostly functional.
 
