@@ -1,3 +1,4 @@
+from zoneinfo import ZoneInfo
 from datetime import datetime
 from datetime import timezone
 from functools import lru_cache
@@ -349,7 +350,6 @@ def _timeago(original_dt: datetime) -> str:
     if dt.tzinfo:
         dt = dt.astimezone(timezone.utc).replace(tzinfo=None)
     chicago_dt = dt.astimezone(ZoneInfo("America/Chicago"))
-    
     return humanize.naturaltime(dt, when=now().replace(tzinfo=None)) + " (" + chicago_dt.strftime('%b. %-d at %-I:%M %p') + ")"
 
 
