@@ -348,7 +348,9 @@ def _timeago(original_dt: datetime) -> str:
     dt = original_dt
     if dt.tzinfo:
         dt = dt.astimezone(timezone.utc).replace(tzinfo=None)
-    return humanize.naturaltime(dt, when=now().replace(tzinfo=None))
+    chicago_dt = dt.astimezone(ZoneInfo("America/Chicago"))
+    
+    return humanize.naturaltime(dt, when=now().replace(tzinfo=None)) + " (" + chicago_dt.strftime('%b. %-d at %-I:%M %p') + ")"
 
 
 def _has_media_type(attachment: Attachment, media_type_prefix: str) -> bool:
