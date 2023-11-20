@@ -47,6 +47,12 @@ $code-highlight-background: #f0f0f0;
   }
 }
 
+.show-more-wrapper {
+  .p-summary {
+    display: inline-block;
+  }
+}
+
 .sensitive-attachment {
   display: inline-block;
   .sensitive-attachment-state {
