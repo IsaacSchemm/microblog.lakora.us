@@ -1631,6 +1631,8 @@ async def json_feed(
     for outbox_object in outbox_objects:
         if not outbox_object.ap_published_at:
             raise ValueError(f"{outbox_object} has no published date")
+        if outbox_object.summary is not None:
+            continue
         data.append(
             {
                 "id": outbox_object.public_id,
@@ -1684,6 +1686,9 @@ async def _gen_rss_feed(
         content = outbox_object.content
         if content is None:
             raise ValueError("Should never happen")
+
+        if outbox_object.summary is not None:
+            continue
 
         if outbox_object.attachments:
             for attachment in outbox_object.attachments:
