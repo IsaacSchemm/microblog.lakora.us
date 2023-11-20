@@ -47,26 +47,6 @@ $code-highlight-background: #f0f0f0;
   }
 }
 
-.show-more-wrapper {
-  .p-summary {
-    display: inline-block;
-  }
-  .show-more-btn {
-    margin-left: 5px;
-  }
-  summary {
-    display: inline-block;
-  }
-  summary::-webkit-details-marker {
-    display: none
-  }
-  &:not([open]) .show-more-btn::after {
-    content: 'show more';
-  }
-  &[open] .show-more-btn::after {
-    content: 'show less';
-  }
-}
 .sensitive-attachment {
   display: inline-block;
   .sensitive-attachment-state {
