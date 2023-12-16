@@ -35,6 +35,18 @@ async def new_ap_incoming_activity(
     else:
         ap_id = ap.get_id(raw_object)
 
+    if httpsig_info.signed_by_ap_actor_id.startswith("https://lemmy.ml/c/"):
+        logger.info(f"Blocking message from lemmy.ml")
+        return None
+
+    if httpsig_info.signed_by_ap_actor_id.startswith("https://lemmy.world/c/"):
+        logger.info(f"Blocking message from lemmy.world")
+        return None
+
+    if httpsig_info.signed_by_ap_actor_id.startswith("https://startrek.online/c/"):
+        logger.info(f"Blocking message from startrek.online")
+        return None
+
     # TODO(ts): dedup first
 
     incoming_activity = models.IncomingActivity(
