@@ -354,7 +354,7 @@ def _timeago(original_dt: datetime) -> str:
     if chicago_dt.date() == chicago_now.date():
         return chicago_dt.strftime('%-I:%M %p')
     else:
-         return chicago_dt.strftime('%A, %B %-d %Y')
+         return chicago_dt.strftime('%A, %B %-d, %Y')
 
 
 def _has_media_type(attachment: Attachment, media_type_prefix: str) -> bool:
