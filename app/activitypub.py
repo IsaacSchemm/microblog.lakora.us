@@ -42,6 +42,7 @@ AS_EXTENDED_CTX = [
         "Emoji": "toot:Emoji",
         "blurhash": "toot:blurhash",
         "votersCount": "toot:votersCount",
+        "indexable": "toot:indexable",
         # schema
         "schema": "http://schema.org#",
         "PropertyValue": "schema:PropertyValue",
@@ -127,6 +128,7 @@ ME = {
     "preferredUsername": config.USERNAME,
     "name": config.CONFIG.name,
     "summary": _LOCAL_ACTOR_SUMMARY,
+    "indexable": True,
     "endpoints": {
         # For compat with servers expecting a sharedInbox...
         "sharedInbox": config.BASE_URL
