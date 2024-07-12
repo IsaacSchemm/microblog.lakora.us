@@ -17,6 +17,7 @@ from app.media import proxied_media_url
 from app.utils.datetime import now
 from app.utils.datetime import parse_isoformat
 
+from loguru import logger
 
 class Object:
     @property
@@ -115,17 +116,20 @@ class Object:
                 continue
 
             proxied_url = proxied_media_url(obj["url"])
-            attachments.append(
-                Attachment.parse_obj(
-                    {
-                        "proxiedUrl": proxied_url,
-                        "resizedUrl": proxied_url + "/740"
-                        if obj.get("mediaType", "").startswith("image")
-                        else None,
-                        **obj,
-                    }
+            try:
+                attachments.append(
+                    Attachment.parse_obj(
+                        {
+                            "proxiedUrl": proxied_url,
+                            "resizedUrl": proxied_url + "/740"
+                            if obj.get("mediaType", "").startswith("image")
+                            else None,
+                            **obj,
+                        }
+                    )
                 )
-            )
+            except:
+                logger.info(f"Thumbnail error: {proxied_url}")
 
         # Also add any video Link (for PeerTube compat)
         if self.ap_type == "Video":
